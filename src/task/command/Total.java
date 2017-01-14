@@ -67,7 +67,7 @@ public class Total extends Command {
 
 		// “à—e‚ð•\Ž¦
 		for (Entry<String, Integer> s : entries) {
-			System.out.println(s.getKey() + ":" + s.getValue());
+			System.out.println(s.getKey() + ": " + StringUtil.convertHourAndMinute(s.getValue()));
 		}
 	}
 
