@@ -104,7 +104,11 @@ public class CommandFactory {
 		// 総タスク時間の降順ランキング
 		case "total":
 		case "t":
-			return new Total();
+			if (command.length == 1) {
+				return new Total();
+			} else {
+				return new Total(command[1]);
+			}
 
 		// 終了
 		case "quit":

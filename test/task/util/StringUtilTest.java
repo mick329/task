@@ -14,6 +14,10 @@ public class StringUtilTest {
 		System.out.println(StringUtil.convertHourAndMinute(5));
 		System.out.println(StringUtil.convertHourAndMinute(69));
 		System.out.println(StringUtil.convertHourAndMinute(179));
+
+		System.out.println(StringUtil.isPositiveInteger("0"));
+		System.out.println(StringUtil.isPositiveInteger("-1"));
+		System.out.println(StringUtil.isPositiveInteger("1"));
 	}
 
 }
