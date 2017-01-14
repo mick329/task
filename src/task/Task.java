@@ -42,6 +42,7 @@ public class Task {
 				command = CommandFactory.createCommand(line);
 				try {
 					command.run();
+					System.out.println("");
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
