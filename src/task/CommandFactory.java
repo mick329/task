@@ -11,6 +11,7 @@ import task.command.Meeting;
 import task.command.Now;
 import task.command.NullCommand;
 import task.command.Open;
+import task.command.Postscript;
 import task.command.Quit;
 import task.command.Ranking;
 import task.command.Start;
@@ -34,7 +35,7 @@ public class CommandFactory {
 			}
 			return new Add(command[1]);
 
-		// タスク削除
+			// タスク削除
 		case "delete":
 		case "d":
 			if (command.length == 1) {
@@ -47,12 +48,12 @@ public class CommandFactory {
 			}
 			return new Delete(command[1]);
 
-		// タスク表示
+			// タスク表示
 		case "list":
 		case "l":
 			return new List();
 
-		// タスク開始
+			// タスク開始
 		case "start":
 		case "st":
 			if (command.length == 1) {
@@ -65,7 +66,7 @@ public class CommandFactory {
 			}
 			return new Start(command[1]);
 
-		// タスク中断
+			// タスク中断
 		case "stop":
 		case "sp":
 			if (command.length == 1) {
@@ -88,22 +89,22 @@ public class CommandFactory {
 		case "i":
 			return new Inquiry();
 
-		// 打ち合わせ
+			// 打ち合わせ
 		case "meeting":
 		case "m":
 			return new Meeting();
 
-		// 今日のタスク時間の降順ランキング
+			// 今日のタスク時間の降順ランキング
 		case "ranking":
 		case "r":
 			return new Ranking();
 
-		// ヘルプ
+			// ヘルプ
 		case "help":
 		case "h":
 			return new Help();
 
-		// 総タスク時間の降順ランキング
+			// 総タスク時間の降順ランキング
 		case "total":
 		case "t":
 			if (command.length == 1) {
@@ -112,12 +113,12 @@ public class CommandFactory {
 				return new Total(command[1]);
 			}
 
-		// 実行中のタスクを表示
+			// 実行中のタスクを表示
 		case "now":
 		case "n":
 			return new Now();
 
-		// ログファイルを開く
+			// ログファイルを開く
 		case "open":
 		case "o":
 			if (command.length == 1) {
@@ -126,7 +127,15 @@ public class CommandFactory {
 				return new Open(command[1]);
 			}
 
-		// 終了
+			// 追記
+		case "postscript":
+		case "p":
+			if (command.length == 2) {
+				return new Postscript(command[1]);
+			}
+			break;
+
+			// 終了
 		case "quit":
 		case "q":
 			return new Quit();
