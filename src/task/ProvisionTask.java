@@ -23,8 +23,8 @@ public enum ProvisionTask {
 		return null;
 	}
 
-	public static boolean isProvisionTask(String taskName) {
-		return getProvisionTask(taskName) != null;
+	public static boolean isNotProvisionTask(String taskName) {
+		return getProvisionTask(taskName) == null;
 	}
 
 }

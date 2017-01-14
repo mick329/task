@@ -29,14 +29,14 @@ public class End extends Command {
 				String runningTaskName = Task.getRunningTaskName();
 				System.out.println(runningTaskName + " end");
 
-				if (ProvisionTask.isProvisionTask(runningTaskName)) {
+				if (ProvisionTask.isNotProvisionTask(runningTaskName)) {
 
 					// todo‚©‚çƒ^ƒXƒN‚ğíœ
 					List<String> todoList = TaskFiles.getTaskList();
 					List<String> newTodoList = new ArrayList<>();
 
 					for (String task : todoList) {
-						if (task.indexOf(runningTaskName) == -1) {
+						if (!task.equals(runningTaskName)) {
 							newTodoList.add(task);
 						}
 					}
