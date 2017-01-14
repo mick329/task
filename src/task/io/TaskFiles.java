@@ -92,16 +92,4 @@ public class TaskFiles {
 		return new File(getDirectoryPath() + StringUtil.getDayText(day) + ".log").toPath();
 	}
 
-	public static List<String> getDoneList() {
-		return readAllLines(getDoneFilePath());
-	}
-
-	private static Path getDoneFilePath() {
-		return new File(getDirectoryPath() + TaskProperties.getInstance().getProperty("DONE_FILE_NAME")).toPath();
-	}
-
-	public static void writeDoneFile(List<String> doneList) throws IOException {
-		writeFile(getDoneFilePath(), doneList);
-	}
-
 }

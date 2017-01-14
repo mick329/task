@@ -31,11 +31,8 @@ public class TaskFilesTest {
 				+ TaskProperties.getInstance().getProperty("TASK_FILE_NAME");
 		String logFilePath = TaskProperties.getInstance().getProperty("DIRECTORY_PATH") + StringUtil.getDayText(now)
 				+ ".log";
-		String doneFilePath = TaskProperties.getInstance().getProperty("DIRECTORY_PATH")
-				+ TaskProperties.getInstance().getProperty("DONE_FILE_NAME");
 		Files.deleteIfExists(new File(taskFilePath).toPath());
 		Files.deleteIfExists(new File(logFilePath).toPath());
-		Files.deleteIfExists(new File(doneFilePath).toPath());
 	}
 
 	@Test
@@ -65,7 +62,7 @@ public class TaskFilesTest {
 	public void givenNullTaskListNotThrowException() throws IOException {
 		TaskFiles.writeTaskFile(null);
 	}
-	
+
 	@Test
 	public void givenNullLogListNotThrowException() throws IOException {
 		TaskFiles.writeLogFile(null);
@@ -99,28 +96,6 @@ public class TaskFilesTest {
 	public void givenNullThrowNullPointerException() {
 		thrown.expect(NullPointerException.class);
 		TaskFiles.getLogList(null);
-	}
-	
-	@Test
-	public void givenNullDoneListNotThrowException() throws IOException {
-		TaskFiles.writeDoneFile(null);
-	}
-
-	
-	@Test
-	public void notExistsDoneFileReturnBlankList() {
-		List<String> doneList = TaskFiles.getDoneList();
-		assertThat(doneList.size(), is(0));
-	}
-	
-	@Test
-	public void givenStringListWiteDoneFile() throws IOException {
-		List<String> addStringList = new ArrayList<>();
-		addStringList.add("test1");
-		addStringList.add("test2");
-		TaskFiles.writeDoneFile(addStringList);
-		List<String> logList = TaskFiles.getDoneList();
-		assertThat(logList.size(), is(2));
 	}
 
 }

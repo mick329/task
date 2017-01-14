@@ -42,11 +42,6 @@ public class End extends Command {
 					}
 
 					TaskFiles.writeTaskFile(newTodoList);
-
-					// done‚Öƒ^ƒXƒN‚ðˆÚ“®
-					List<String> doneList = TaskFiles.getDoneList();
-					doneList.add(runningTaskName);
-					TaskFiles.writeDoneFile(doneList);
 				}
 
 				Task.initTaskStatus();
