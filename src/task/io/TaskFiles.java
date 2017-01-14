@@ -85,11 +85,11 @@ public class TaskFiles {
 	}
 
 	private static Path getLogFilePath() {
-		return new File(getDirectoryPath() + StringUtil.getDayText(Calendar.getInstance()) + ".log").toPath();
+		return new File(getDirectoryPath() + StringUtil.getDateText(Calendar.getInstance()) + ".log").toPath();
 	}
 
 	private static Path getLogFilePath(Calendar day) {
-		return new File(getDirectoryPath() + StringUtil.getDayText(day) + ".log").toPath();
+		return new File(getDirectoryPath() + StringUtil.getDateText(day) + ".log").toPath();
 	}
 
 }

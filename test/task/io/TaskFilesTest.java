@@ -29,7 +29,7 @@ public class TaskFilesTest {
 	public void deleteTaskFile() throws IOException {
 		String taskFilePath = TaskProperties.getInstance().getProperty("DIRECTORY_PATH")
 				+ TaskProperties.getInstance().getProperty("TASK_FILE_NAME");
-		String logFilePath = TaskProperties.getInstance().getProperty("DIRECTORY_PATH") + StringUtil.getDayText(now)
+		String logFilePath = TaskProperties.getInstance().getProperty("DIRECTORY_PATH") + StringUtil.getDateText(now)
 				+ ".log";
 		Files.deleteIfExists(new File(taskFilePath).toPath());
 		Files.deleteIfExists(new File(logFilePath).toPath());

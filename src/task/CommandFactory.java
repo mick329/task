@@ -8,7 +8,9 @@ import task.command.Help;
 import task.command.Inquiry;
 import task.command.List;
 import task.command.Meeting;
+import task.command.Now;
 import task.command.NullCommand;
+import task.command.Open;
 import task.command.Quit;
 import task.command.Ranking;
 import task.command.Start;
@@ -108,6 +110,20 @@ public class CommandFactory {
 				return new Total();
 			} else {
 				return new Total(command[1]);
+			}
+
+		// 実行中のタスクを表示
+		case "now":
+		case "n":
+			return new Now();
+
+		// ログファイルを開く
+		case "open":
+		case "o":
+			if (command.length == 1) {
+				return new Open();
+			} else {
+				return new Open(command[1]);
 			}
 
 		// 終了

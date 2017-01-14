@@ -24,11 +24,14 @@ public class Task {
 
 		Command command = null;
 
-		ScheduledExecutorService service = Executors.newSingleThreadScheduledExecutor();
-		service.scheduleAtFixedRate(new StopTaskAtLunchBreak(), 0, 15, TimeUnit.MINUTES);
+		ScheduledExecutorService service = Executors
+				.newSingleThreadScheduledExecutor();
+		service.scheduleAtFixedRate(new StopTaskAtLunchBreak(), 0, 15,
+				TimeUnit.MINUTES);
 
 		if (isBeforOfficeStartTime()) {
-			startTask(CalendarUtil.getOfficeStartTime(), ProvisionTask.MORNING_ASSEMBLY.getTaskName());
+			startTask(CalendarUtil.getOfficeStartTime(),
+					ProvisionTask.MORNING_ASSEMBLY.getTaskName());
 		}
 
 		try (Scanner scanner = new Scanner(System.in)) {
@@ -83,6 +86,10 @@ public class Task {
 
 	public static String getRunningTaskName() {
 		return runningTaskName;
+	}
+
+	public static void addRunningTaskName(String addText) {
+		runningTaskName += "(" + addText + ")";
 	}
 
 	public static Calendar getTaskStartTime() {

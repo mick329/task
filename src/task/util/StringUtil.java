@@ -49,7 +49,12 @@ public final class StringUtil {
 		return cal.get(Calendar.HOUR_OF_DAY) + ":" + cal.get(Calendar.MINUTE);
 	}
 
-	public static String getDayText(Calendar day) {
+	public static String getDayText() {
+		SimpleDateFormat dayFormat = new SimpleDateFormat("MM-dd");
+		return dayFormat.format(Calendar.getInstance().getTime());
+	}
+
+	public static String getDateText(Calendar day) {
 		if (day == null) {
 			throw new NullPointerException();
 		}
