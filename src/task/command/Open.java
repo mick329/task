@@ -1,11 +1,15 @@
 package task.command;
 
+import java.io.IOException;
 import java.util.Calendar;
 
 import task.io.TaskFiles;
 import task.util.StringUtil;
+import task.util.TaskProperties;
 
 public class Open extends Command {
+
+	private static final String TASK_FILE_NAME = "task";
 
 	private String date;
 
@@ -14,7 +18,11 @@ public class Open extends Command {
 	}
 
 	public Open(String date) {
-		this.date = convertLogFileName(date);
+		if (TASK_FILE_NAME.equals(date)) {
+			this.date = date;
+		} else {
+			this.date = convertLogFileName(date);
+		}
 	}
 
 	@Override
@@ -25,10 +33,11 @@ public class Open extends Command {
 					"ファイル名を指定してください。(yyMMdd or yyyyMMdd)");
 		}
 
-		Runtime runtime = Runtime.getRuntime();
-		String fileName = date + ".log";
-		System.out.println(fileName + "を開きます。");
-		runtime.exec("notepad " + TaskFiles.getDirectoryPath() + fileName);
+		if (TASK_FILE_NAME.equals(date)) {
+			openFile(TaskProperties.getInstance().getProperty("TASK_FILE_NAME"));
+		} else {
+			openFile(date + ".log");
+		}
 	}
 
 	private String convertLogFileName(String date) {
@@ -41,5 +50,11 @@ public class Open extends Command {
 					+ "-" + date.substring(4, 6);
 		}
 		return null;
+	}
+
+	private void openFile(String fullFileName) throws IOException {
+		Runtime runtime = Runtime.getRuntime();
+		System.out.println(fullFileName + "を開きます。");
+		runtime.exec("notepad " + TaskFiles.getDirectoryPath() + fullFileName);
 	}
 }
