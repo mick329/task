@@ -4,6 +4,8 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.regex.Pattern;
 
+import task.LogFile;
+
 public final class StringUtil {
 
 	public static boolean isTime(String text) {
@@ -81,6 +83,19 @@ public final class StringUtil {
 		} else {
 			return hour + "ŽžŠÔ " + minute + "•ª";
 		}
+	}
+
+	public static String createShowLogText(LogFile logFile) {
+		StringBuilder showLogText = new StringBuilder();
+		showLogText.append(getDateText(logFile.getStartTime()));
+		showLogText.append(" ");
+		showLogText.append(getDateText(logFile.getEndTime()));
+		showLogText.append(" ");
+		showLogText.append(logFile.getTaskName());
+		showLogText.append(": ");
+		showLogText.append(convertHourAndMinute(logFile
+				.getWorkingHoursInMinute()));
+		return showLogText.toString();
 	}
 
 }

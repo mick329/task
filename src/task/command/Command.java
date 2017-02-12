@@ -42,7 +42,7 @@ public abstract class Command {
 
 		long diffTime = (arbitraryTime.getTimeInMillis() - taskStartTime.getTimeInMillis()) / (1000 * 60);
 
-		List<String> logList = TaskFiles.getLogList();
+		List<String> logList = TaskFiles.getLogLineTextList();
 		logList.add(timeFormat.format(taskStartTime.getTime()) + "," + timeFormat.format(arbitraryTime.getTime()) + ","
 				+ diffTime + "," + Task.getRunningTaskName());
 

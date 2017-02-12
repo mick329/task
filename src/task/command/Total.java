@@ -3,12 +3,10 @@ package task.command;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Collections;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-import java.util.Map.Entry;
 
 import task.DescendingOrderOfWorkingHour;
+import task.LogFile;
 import task.io.TaskFiles;
 import task.util.StringUtil;
 
@@ -33,11 +31,8 @@ public class Total extends Command {
 			return;
 		}
 
-		Map<String, Integer> showTask = new HashMap<>();
-		String[] tmp = null;
-		String task = null;
-		int minute = 0;
-		List<String> logList = null;
+		List<LogFile> aggregateLogFileList = new ArrayList<>();
+		List<LogFile> logFileList = null;
 		Calendar day = null;
 
 		// 指定日数分を集計する
@@ -45,30 +40,26 @@ public class Total extends Command {
 
 			day = Calendar.getInstance();
 			day.add(Calendar.DAY_OF_MONTH, -1 * i);
-			day.getTime();
 
-			logList = TaskFiles.getLogList(day);
+			logFileList = TaskFiles.getLogFileList(day);
 
-			for (String line : logList) {
-				tmp = line.split(",");
-				task = tmp[3];
-				minute = Integer.parseInt(tmp[2]);
-				if (showTask.containsKey(task)) {
-					showTask.put(task, showTask.get(task) + minute);
+			for (LogFile logFile : logFileList) {
+				if (aggregateLogFileList.contains(logFile)) {
+					aggregateLogFileList.get(
+							aggregateLogFileList.indexOf(logFile)).aggregate(
+							logFile);
 				} else {
-					showTask.put(task, minute);
+					aggregateLogFileList.add(logFile);
 				}
 			}
 		}
 
-		List<Map.Entry<String, Integer>> entries = new ArrayList<Map.Entry<String, Integer>>(
-				showTask.entrySet());
-		Collections.sort(entries, new DescendingOrderOfWorkingHour());
+		// 作業時間でソート
+		Collections.sort(aggregateLogFileList,
+				new DescendingOrderOfWorkingHour());
 
-		// 内容を表示
-		for (Entry<String, Integer> s : entries) {
-			System.out.println(s.getKey() + ": " + StringUtil.convertHourAndMinute(s.getValue()));
+		for (LogFile logFile : aggregateLogFileList) {
+			System.out.println(StringUtil.createShowLogText(logFile));
 		}
 	}
-
 }

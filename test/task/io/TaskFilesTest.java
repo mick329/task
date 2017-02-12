@@ -74,28 +74,28 @@ public class TaskFilesTest {
 		addStringList.add("test1");
 		addStringList.add("test2");
 		TaskFiles.writeLogFile(addStringList);
-		List<String> logList = TaskFiles.getLogList();
+		List<String> logList = TaskFiles.getLogLineTextList();
 		assertThat(logList.size(), is(2));
 	}
 
 	@Test
 	public void notExistsLogFileReturnBlankList() {
-		TaskFiles.getLogList();
-		List<String> logList = TaskFiles.getLogList();
+		TaskFiles.getLogFileList();
+		List<String> logList = TaskFiles.getLogLineTextList();
 		assertThat(logList.size(), is(0));
 	}
 
 	@Test
 	public void notExistsLogFileOfSpecifyTimeReturnBlankList() {
-		TaskFiles.getLogList(now);
-		List<String> logList = TaskFiles.getLogList();
+		TaskFiles.getLogFileList(now);
+		List<String> logList = TaskFiles.getLogLineTextList();
 		assertThat(logList.size(), is(0));
 	}
 
 	@Test
 	public void givenNullThrowNullPointerException() {
 		thrown.expect(NullPointerException.class);
-		TaskFiles.getLogList(null);
+		TaskFiles.getLogFileList(null);
 	}
 
 }

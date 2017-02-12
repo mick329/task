@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
+import task.LogFile;
 import task.util.StringUtil;
 import task.util.TaskProperties;
 
@@ -34,7 +35,8 @@ public class TaskFiles {
 	}
 
 	private static Path getTaskFilePath() {
-		String taskFilePath = getDirectoryPath() + TaskProperties.getInstance().getProperty("TASK_FILE_NAME");
+		String taskFilePath = getDirectoryPath()
+				+ TaskProperties.getInstance().getProperty("TASK_FILE_NAME");
 		return new File(taskFilePath).toPath();
 	}
 
@@ -46,13 +48,15 @@ public class TaskFiles {
 		writeFile(getTaskFilePath(), taskList);
 	}
 
-	private static void writeFile(Path path, List<String> writeList) throws IOException {
+	private static void writeFile(Path path, List<String> writeList)
+			throws IOException {
 		if (writeList == null) {
 			// 何もしない
 			return;
 		}
 		try {
-			Files.write(path, writeList, StandardCharsets.UTF_8, StandardOpenOption.CREATE, StandardOpenOption.WRITE,
+			Files.write(path, writeList, StandardCharsets.UTF_8,
+					StandardOpenOption.CREATE, StandardOpenOption.WRITE,
 					StandardOpenOption.TRUNCATE_EXISTING);
 		} catch (IOException e) {
 			System.err.println("タスクの書き込みに失敗しました。");
@@ -64,32 +68,60 @@ public class TaskFiles {
 		writeFile(getLogFilePath(), logList);
 	}
 
-	public static List<String> getLogList() {
-		return getLogList(Calendar.getInstance());
+	public static List<String> getLogLineTextList() {
+		return getLogLineTextList(Calendar.getInstance());
 	}
 
-	public static List<String> getLogList(Calendar day) {
+	public static List<String> getLogLineTextList(Calendar day) {
 		Path path = getLogFilePath(day);
-
 		if (path.toFile().exists()) {
-			List<String> list = null;
+			List<String> lineTextList = new ArrayList<>();
 			try {
-				list = Files.readAllLines(path, StandardCharsets.UTF_8);
+				lineTextList = Files.readAllLines(path, StandardCharsets.UTF_8);
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
-			return list;
+			return lineTextList;
 		} else {
-			return new ArrayList<String>();
+			return new ArrayList<>();
+		}
+	}
+
+	public static List<LogFile> getLogFileList() {
+		return getLogFileList(Calendar.getInstance());
+	}
+
+	public static List<LogFile> getLogFileList(Calendar day) {
+		Path path = getLogFilePath(day);
+
+		if (path.toFile().exists()) {
+			List<String> lineList = null;
+			List<LogFile> logFileList = new ArrayList<>();
+			try {
+				lineList = Files.readAllLines(path, StandardCharsets.UTF_8);
+				LogFile logFile = null;
+				for (String line : lineList) {
+					logFile = new LogFile(day, line);
+					logFileList.add(logFile);
+				}
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			return logFileList;
+		} else {
+			return new ArrayList<LogFile>();
 		}
 	}
 
 	private static Path getLogFilePath() {
-		return new File(getDirectoryPath() + StringUtil.getDateText(Calendar.getInstance()) + ".log").toPath();
+		return new File(getDirectoryPath()
+				+ StringUtil.getDateText(Calendar.getInstance()) + ".log")
+				.toPath();
 	}
 
 	private static Path getLogFilePath(Calendar day) {
-		return new File(getDirectoryPath() + StringUtil.getDateText(day) + ".log").toPath();
+		return new File(getDirectoryPath() + StringUtil.getDateText(day)
+				+ ".log").toPath();
 	}
 
 }

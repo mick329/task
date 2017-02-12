@@ -13,11 +13,23 @@ public final class CalendarUtil {
 		return Calendar.getInstance();
 	}
 
+	public static Calendar getArbitraryTime(Calendar date, String argument) {
+		if (StringUtil.isTime(argument)) {
+			String[] time = argument.split(":");
+			return getArbitraryTime(date, time[0], time[1]);
+		}else{
+			return date;
+		}
+	}
+
 	private static Calendar getArbitraryTime(String hour, String minute) {
-		Calendar arbitraryTime = Calendar.getInstance();
-		arbitraryTime.set(Calendar.HOUR_OF_DAY, Integer.parseInt(hour));
-		arbitraryTime.set(Calendar.MINUTE, Integer.parseInt(minute));
-		return arbitraryTime;
+		return getArbitraryTime(Calendar.getInstance(), hour, minute);
+	}
+
+	private static Calendar getArbitraryTime(Calendar date, String hour, String minute) {
+		date.set(Calendar.HOUR_OF_DAY, Integer.parseInt(hour));
+		date.set(Calendar.MINUTE, Integer.parseInt(minute));
+		return date;
 	}
 
 	public static Calendar getOfficeStartTime() {
