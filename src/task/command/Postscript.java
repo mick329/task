@@ -15,17 +15,17 @@ public class Postscript extends Command {
 	public void run() throws Exception {
 		if (Task.isTaskRunnig()) {
 			if (ProvisionTask.isNotProvisionTask(Task.getRunningTaskName())) {
-				System.out.println("ˆÈ‰º‚Ìƒ^ƒXƒN‚Ì‚İ’Ç‹L‚Å‚«‚Ü‚·B");
+				System.out.println("ä»¥ä¸‹ã®ã‚¿ã‚¹ã‚¯ã®ã¿è¿½è¨˜ã§ãã¾ã™ã€‚");
 				for (ProvisionTask provisionTask : ProvisionTask.values()) {
 					System.out.print(provisionTask.getTaskName() + " ");
 				}
 			} else {
 				Task.addRunningTaskName(addText);
-				System.out.println("ƒ^ƒXƒN–¼‚É’Ç‹L‚µ‚Ü‚µ‚½B");
+				System.out.println("ã‚¿ã‚¹ã‚¯åã«è¿½è¨˜ã—ã¾ã—ãŸã€‚");
 				System.out.println(Task.getRunningTaskName() + " running");
 			}
 		} else {
-			System.out.println("Às’†‚Ìƒ^ƒXƒN‚Í‚ ‚è‚Ü‚¹‚ñB");
+			System.out.println("å®Ÿè¡Œä¸­ã®ã‚¿ã‚¹ã‚¯ã¯ã‚ã‚Šã¾ã›ã‚“ã€‚");
 		}
 	}
 

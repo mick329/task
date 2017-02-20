@@ -16,7 +16,7 @@ public class NullCommand extends Command {
 
 	@Override
 	public void run() {
-		// ‰½‚à‚µ‚È‚¢
+		// ä½•ã‚‚ã—ãªã„
 	}
 
 }

@@ -6,13 +6,13 @@ import task.util.CalendarUtil;
 
 public class LogFile {
 
-	/** ƒ^ƒXƒN–¼ */
+	/** ã‚¿ã‚¹ã‚¯å */
 	private String taskName;
-	/** ì‹ÆŠÔ(•ª) */
+	/** ä½œæ¥­æ™‚é–“(åˆ†) */
 	private Integer workingHoursInMinute;
-	/** ŠJn */
+	/** é–‹å§‹æ™‚åˆ» */
 	private Calendar startTime;
-	/** I—¹ */
+	/** çµ‚äº†æ™‚åˆ» */
 	private Calendar endTime;
 
 	public LogFile() {

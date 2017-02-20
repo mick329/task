@@ -4,8 +4,8 @@ public class Help extends Command {
 
 	@Override
 	public void run() {
-		System.out.println(" aFƒ^ƒXƒN’Ç‰Á     lFƒ^ƒXƒN•\¦ stFƒ^ƒXƒNŠJn   spFƒ^ƒXƒN’†’f eFƒ^ƒXƒNŠ®—¹");
-		System.out.println(" iF–â‚¢‡‚í‚¹‘Î‰ mF‘Å‚¿‡‚í‚¹  hFƒRƒ}ƒ“ƒhˆê——  qFI—¹");
+		System.out.println(" aï¼šã‚¿ã‚¹ã‚¯è¿½åŠ      lï¼šã‚¿ã‚¹ã‚¯è¡¨ç¤º stï¼šã‚¿ã‚¹ã‚¯é–‹å§‹   spï¼šã‚¿ã‚¹ã‚¯ä¸­æ–­ eï¼šã‚¿ã‚¹ã‚¯å®Œäº†");
+		System.out.println(" iï¼šå•ã„åˆã‚ã›å¯¾å¿œ mï¼šæ‰“ã¡åˆã‚ã›  hï¼šã‚³ãƒãƒ³ãƒ‰ä¸€è¦§  qï¼šçµ‚äº†");
 	}
 
 }

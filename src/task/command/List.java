@@ -8,7 +8,7 @@ public class List extends Command {
 	public void run() {
 		java.util.List<String> todoList = TaskFiles.getTaskList();
 		if (todoList.size() == 0) {
-			System.out.println("ƒ^ƒXƒN‚ª“o˜^‚³‚ê‚Ä‚¢‚Ü‚¹‚ñB");
+			System.out.println("ã‚¿ã‚¹ã‚¯ãŒç™»éŒ²ã•ã‚Œã¦ã„ã¾ã›ã‚“ã€‚");
 			return;
 		}
 		showTodoList(todoList);

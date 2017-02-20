@@ -31,7 +31,7 @@ public class End extends Command {
 
 				if (ProvisionTask.isNotProvisionTask(runningTaskName)) {
 
-					// todo‚©‚çƒ^ƒXƒN‚ğíœ
+					// todoã‹ã‚‰ã‚¿ã‚¹ã‚¯ã‚’å‰Šé™¤
 					List<String> todoList = TaskFiles.getTaskList();
 					List<String> newTodoList = new ArrayList<>();
 
@@ -47,7 +47,7 @@ public class End extends Command {
 				Task.initTaskStatus();
 			}
 		} else {
-			System.out.println("Às’†‚Ìƒ^ƒXƒN‚Í‚ ‚è‚Ü‚¹‚ñB");
+			System.out.println("å®Ÿè¡Œä¸­ã®ã‚¿ã‚¹ã‚¯ã¯ã‚ã‚Šã¾ã›ã‚“ã€‚");
 		}
 	}
 

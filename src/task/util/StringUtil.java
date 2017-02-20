@@ -74,14 +74,14 @@ public final class StringUtil {
 
 	public static String convertHourAndMinute(int minuteValue) {
 		if (minuteValue <= 0) {
-			return "0•ª";
+			return "0åˆ†";
 		}
 		int hour = minuteValue / 60;
 		int minute = minuteValue % 60;
 		if (hour == 0) {
-			return minute + "•ª";
+			return minute + "åˆ†";
 		} else {
-			return hour + "ŽžŠÔ " + minute + "•ª";
+			return hour + "æ™‚é–“ " + minute + "åˆ†";
 		}
 	}
 

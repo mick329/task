@@ -30,7 +30,7 @@ public class Open extends Command {
 
 		if (StringUtil.isEmpty(date)) {
 			throw new IllegalArgumentException(
-					"ƒtƒ@ƒCƒ‹–¼‚ğw’è‚µ‚Ä‚­‚¾‚³‚¢B(yyMMdd or yyyyMMdd)");
+					"ãƒ•ã‚¡ã‚¤ãƒ«åã‚’æŒ‡å®šã—ã¦ãã ã•ã„ã€‚(yyMMdd or yyyyMMdd)");
 		}
 
 		if (TASK_FILE_NAME.equals(date)) {
@@ -54,7 +54,7 @@ public class Open extends Command {
 
 	private void openFile(String fullFileName) throws IOException {
 		Runtime runtime = Runtime.getRuntime();
-		System.out.println(fullFileName + "‚ğŠJ‚«‚Ü‚·B");
+		System.out.println(fullFileName + "ã‚’é–‹ãã¾ã™ã€‚");
 		runtime.exec("notepad " + TaskFiles.getDirectoryPath() + fullFileName);
 	}
 }

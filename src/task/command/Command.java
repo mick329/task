@@ -26,7 +26,7 @@ public abstract class Command {
 	}
 
 	protected void wrongTaskIndex() {
-		System.out.println("³‚µ‚¢ƒ^ƒXƒN”Ô†‚ğw’è‚µ‚Ä‚­‚¾‚³‚¢B");
+		System.out.println("æ­£ã—ã„ã‚¿ã‚¹ã‚¯ç•ªå·ã‚’æŒ‡å®šã—ã¦ãã ã•ã„ã€‚");
 	}
 
 	protected boolean writeLogFile(String time) throws IOException {
@@ -52,7 +52,7 @@ public abstract class Command {
 
 	private boolean isNotTime(String time) {
 		if (StringUtil.isNotTime(time)) {
-			System.out.println("³‚µ‚¢‚ğw’è‚µ‚Ä‚­‚¾‚³‚¢B");
+			System.out.println("æ­£ã—ã„æ™‚åˆ»ã‚’æŒ‡å®šã—ã¦ãã ã•ã„ã€‚");
 			return true;
 		}
 		return false;

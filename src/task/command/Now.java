@@ -9,7 +9,7 @@ public class Now extends Command {
 		if (Task.isTaskRunnig()) {
 			System.out.println(Task.getRunningTaskName() + " running");
 		} else {
-			System.out.println("Às’†‚Ìƒ^ƒXƒN‚Í‚ ‚è‚Ü‚¹‚ñB");
+			System.out.println("å®Ÿè¡Œä¸­ã®ã‚¿ã‚¹ã‚¯ã¯ã‚ã‚Šã¾ã›ã‚“ã€‚");
 		}
 	}
 

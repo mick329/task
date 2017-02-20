@@ -20,7 +20,7 @@ public class Delete extends Command {
 		if (existsTaskIndex(todoList, targetTaskIndex)) {
 			String task = todoList.get(targetTaskIndex - 1);
 			todoList.remove(targetTaskIndex - 1);
-			System.out.println("ƒ^ƒXƒN‚ğíœ‚µ‚Ü‚µ‚½B(" + task + ")");
+			System.out.println("ã‚¿ã‚¹ã‚¯ã‚’å‰Šé™¤ã—ã¾ã—ãŸã€‚(" + task + ")");
 			TaskFiles.writeTaskFile(todoList);
 		} else {
 			wrongTaskIndex();

@@ -2,7 +2,7 @@ package task;
 
 public enum ProvisionTask {
 
-	MORNING_ASSEMBLY("’©—ç"), INQUIRY("–â‚¢‡‚í‚¹"), MEETING("‘Å‚¿‡‚í‚¹");
+	MORNING_ASSEMBLY("æœç¤¼"), INQUIRY("å•ã„åˆã‚ã›"), MEETING("æ‰“ã¡åˆã‚ã›");
 
 	private String taskName;
 

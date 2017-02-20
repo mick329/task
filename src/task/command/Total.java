@@ -15,7 +15,7 @@ public class Total extends Command {
 	private String days;
 
 	public Total() {
-		// ƒfƒtƒHƒ‹ƒg‚Í1TŠÔ‚Æ‚·‚é
+		// ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã¯1é€±é–“ã¨ã™ã‚‹
 		days = "7";
 	}
 
@@ -27,7 +27,7 @@ public class Total extends Command {
 	public void run() {
 
 		if (StringUtil.isNotPositiveInteger(days)) {
-			System.out.println("WŒv‚µ‚½‚¢“ú”‚ğ³‚µ‚­“ü—Í‚µ‚Ä‚­‚¾‚³‚¢B");
+			System.out.println("é›†è¨ˆã—ãŸã„æ—¥æ•°ã‚’æ­£ã—ãå…¥åŠ›ã—ã¦ãã ã•ã„ã€‚");
 			return;
 		}
 
@@ -35,7 +35,7 @@ public class Total extends Command {
 		List<LogFile> logFileList = null;
 		Calendar day = null;
 
-		// w’è“ú”•ª‚ğWŒv‚·‚é
+		// æŒ‡å®šæ—¥æ•°åˆ†ã‚’é›†è¨ˆã™ã‚‹
 		for (int i = 0; i < Integer.parseInt(days); i++) {
 
 			day = Calendar.getInstance();
@@ -54,7 +54,7 @@ public class Total extends Command {
 			}
 		}
 
-		// ì‹ÆŠÔ‚Åƒ\[ƒg
+		// ä½œæ¥­æ™‚é–“ã§ã‚½ãƒ¼ãƒˆ
 		Collections.sort(aggregateLogFileList,
 				new DescendingOrderOfWorkingHour());
 

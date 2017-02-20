@@ -15,12 +15,12 @@ public class StopTaskAtLunchBreak implements Runnable {
 			Calendar now = Calendar.getInstance();
 			Calendar lunchBreakStartTime = CalendarUtil.getLunchBreakStartTime();
 			Calendar lunchBreakEndTime = CalendarUtil.getLunchBreakEndTime();
-			// ’‹HŠÔ‚Í©“®“I‚Éƒ^ƒXƒN‚ğ~‚ß‚é
+			// æ˜¼é£Ÿæ™‚é–“ã¯è‡ªå‹•çš„ã«ã‚¿ã‚¹ã‚¯ã‚’æ­¢ã‚ã‚‹
 			if (now.after(lunchBreakStartTime) && now.before(lunchBreakEndTime)) {
 				try {
 					new Stop(lunchBreakStartTime()).run();
 				} catch (IOException e) {
-					// ‰½‚à‚µ‚È‚¢
+					// ä½•ã‚‚ã—ãªã„
 				}
 			}
 

@@ -25,7 +25,7 @@ public class Stop extends Command {
 				Task.initTaskStatus();
 			}
 		} else {
-			System.out.println("Às’†‚Ìƒ^ƒXƒN‚Í‚ ‚è‚Ü‚¹‚ñB");
+			System.out.println("å®Ÿè¡Œä¸­ã®ã‚¿ã‚¹ã‚¯ã¯ã‚ã‚Šã¾ã›ã‚“ã€‚");
 		}
 	}
 

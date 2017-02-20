@@ -23,7 +23,7 @@ public class Add extends Command {
 		for (String task : taskArray) {
 			if (StringUtil.isNotEmpty(task)) {
 				todoList.add(task);
-				System.out.println("ƒ^ƒXƒN‚ğ’Ç‰Á‚µ‚Ü‚µ‚½B(" + todoList.size() + ":" + task + ")");
+				System.out.println("ã‚¿ã‚¹ã‚¯ã‚’è¿½åŠ ã—ã¾ã—ãŸã€‚(" + todoList.size() + ":" + task + ")");
 			}
 		}
 

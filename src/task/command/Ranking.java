@@ -29,7 +29,7 @@ public class Ranking extends Command {
 		Collections.sort(aggregateLogFileList,
 				new DescendingOrderOfWorkingHour());
 
-		// “à—e‚ð•\Ž¦
+		// å†…å®¹ã‚’è¡¨ç¤º
 		for (LogFile logFile : aggregateLogFileList) {
 			System.out.println(StringUtil.createShowLogText(logFile));
 		}

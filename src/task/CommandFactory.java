@@ -26,47 +26,47 @@ public class CommandFactory {
 		String[] command = line.split(" ");
 
 		switch (command[0]) {
-		// ƒ^ƒXƒN’Ç‰Á
+		// ã‚¿ã‚¹ã‚¯è¿½åŠ 
 		case "add":
 		case "a":
 			if (command[1] == null) {
-				System.out.println("ƒ^ƒXƒN‚ğ“ü—Í‚µ‚Ä‚­‚¾‚³‚¢B");
+				System.out.println("ã‚¿ã‚¹ã‚¯ã‚’å…¥åŠ›ã—ã¦ãã ã•ã„ã€‚");
 				break;
 			}
 			return new Add(command[1]);
 
-			// ƒ^ƒXƒNíœ
+			// ã‚¿ã‚¹ã‚¯å‰Šé™¤
 		case "delete":
 		case "d":
 			if (command.length == 1) {
-				System.out.println("íœ‚·‚éƒ^ƒXƒN”Ô†‚ğ“ü—Í‚µ‚Ä‚­‚¾‚³‚¢B");
+				System.out.println("å‰Šé™¤ã™ã‚‹ã‚¿ã‚¹ã‚¯ç•ªå·ã‚’å…¥åŠ›ã—ã¦ãã ã•ã„ã€‚");
 				break;
 			}
 			if (StringUtil.isNotNumber(command[1])) {
-				System.out.println("ƒ^ƒXƒN”Ô†‚Í”’l‚Åw’è‚µ‚Ä‚­‚¾‚³‚¢B");
+				System.out.println("ã‚¿ã‚¹ã‚¯ç•ªå·ã¯æ•°å€¤ã§æŒ‡å®šã—ã¦ãã ã•ã„ã€‚");
 				break;
 			}
 			return new Delete(command[1]);
 
-			// ƒ^ƒXƒN•\¦
+			// ã‚¿ã‚¹ã‚¯è¡¨ç¤º
 		case "list":
 		case "l":
 			return new List();
 
-			// ƒ^ƒXƒNŠJn
+			// ã‚¿ã‚¹ã‚¯é–‹å§‹
 		case "start":
 		case "st":
 			if (command.length == 1) {
-				System.out.println("ŠJn‚·‚éƒ^ƒXƒN”Ô†‚ğw’è‚µ‚Ä‚­‚¾‚³‚¢B");
+				System.out.println("é–‹å§‹ã™ã‚‹ã‚¿ã‚¹ã‚¯ç•ªå·ã‚’æŒ‡å®šã—ã¦ãã ã•ã„ã€‚");
 				break;
 			}
 			if (StringUtil.isNotNumber(command[1])) {
-				System.out.println("ƒ^ƒXƒN”Ô†‚Í”’l‚Åw’è‚µ‚Ä‚­‚¾‚³‚¢B");
+				System.out.println("ã‚¿ã‚¹ã‚¯ç•ªå·ã¯æ•°å€¤ã§æŒ‡å®šã—ã¦ãã ã•ã„ã€‚");
 				break;
 			}
 			return new Start(command[1]);
 
-			// ƒ^ƒXƒN’†’f
+			// ã‚¿ã‚¹ã‚¯ä¸­æ–­
 		case "stop":
 		case "sp":
 			if (command.length == 1) {
@@ -75,7 +75,7 @@ public class CommandFactory {
 				return new Stop(command[1]);
 			}
 
-			// ƒ^ƒXƒNŠ®—¹
+			// ã‚¿ã‚¹ã‚¯å®Œäº†
 		case "end":
 		case "e":
 			if (command.length == 1) {
@@ -84,27 +84,27 @@ public class CommandFactory {
 				return new End(command[1]);
 			}
 
-			// –â‚¢‡‚í‚¹‘Î‰
+			// å•ã„åˆã‚ã›å¯¾å¿œ
 		case "inquiry":
 		case "i":
 			return new Inquiry();
 
-			// ‘Å‚¿‡‚í‚¹
+			// æ‰“ã¡åˆã‚ã›
 		case "meeting":
 		case "m":
 			return new Meeting();
 
-			// ¡“ú‚Ìƒ^ƒXƒNŠÔ‚Ì~‡ƒ‰ƒ“ƒLƒ“ƒO
+			// ä»Šæ—¥ã®ã‚¿ã‚¹ã‚¯æ™‚é–“ã®é™é †ãƒ©ãƒ³ã‚­ãƒ³ã‚°
 		case "ranking":
 		case "r":
 			return new Ranking();
 
-			// ƒwƒ‹ƒv
+			// ãƒ˜ãƒ«ãƒ—
 		case "help":
 		case "h":
 			return new Help();
 
-			// ‘ƒ^ƒXƒNŠÔ‚Ì~‡ƒ‰ƒ“ƒLƒ“ƒO
+			// ç·ã‚¿ã‚¹ã‚¯æ™‚é–“ã®é™é †ãƒ©ãƒ³ã‚­ãƒ³ã‚°
 		case "total":
 		case "t":
 			if (command.length == 1) {
@@ -113,12 +113,12 @@ public class CommandFactory {
 				return new Total(command[1]);
 			}
 
-			// Às’†‚Ìƒ^ƒXƒN‚ğ•\¦
+			// å®Ÿè¡Œä¸­ã®ã‚¿ã‚¹ã‚¯ã‚’è¡¨ç¤º
 		case "now":
 		case "n":
 			return new Now();
 
-			// ƒƒOƒtƒ@ƒCƒ‹‚ğŠJ‚­
+			// ãƒ­ã‚°ãƒ•ã‚¡ã‚¤ãƒ«ã‚’é–‹ã
 		case "open":
 		case "o":
 			if (command.length == 1) {
@@ -127,7 +127,7 @@ public class CommandFactory {
 				return new Open(command[1]);
 			}
 
-			// ’Ç‹L
+			// è¿½è¨˜
 		case "postscript":
 		case "p":
 			if (command.length == 2) {
@@ -135,7 +135,7 @@ public class CommandFactory {
 			}
 			break;
 
-			// I—¹
+			// çµ‚äº†
 		case "quit":
 		case "q":
 			return new Quit();

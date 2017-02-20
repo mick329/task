@@ -51,7 +51,7 @@ public class TaskFiles {
 	private static void writeFile(Path path, List<String> writeList)
 			throws IOException {
 		if (writeList == null) {
-			// ‰½‚à‚µ‚È‚¢
+			// ä½•ã‚‚ã—ãªã„
 			return;
 		}
 		try {
@@ -59,7 +59,7 @@ public class TaskFiles {
 					StandardOpenOption.CREATE, StandardOpenOption.WRITE,
 					StandardOpenOption.TRUNCATE_EXISTING);
 		} catch (IOException e) {
-			System.err.println("ƒ^ƒXƒN‚Ì‘‚«‚İ‚É¸”s‚µ‚Ü‚µ‚½B");
+			System.err.println("ã‚¿ã‚¹ã‚¯ã®æ›¸ãè¾¼ã¿ã«å¤±æ•—ã—ã¾ã—ãŸã€‚");
 			throw e;
 		}
 	}
