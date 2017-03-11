@@ -7,6 +7,7 @@ import task.command.End;
 import task.command.Help;
 import task.command.Inquiry;
 import task.command.List;
+import task.command.LoadIssue;
 import task.command.Meeting;
 import task.command.Now;
 import task.command.NullCommand;
@@ -134,6 +135,11 @@ public class CommandFactory {
 				return new Postscript(command[1]);
 			}
 			break;
+
+			// Issueを取り込む
+		case "loadissue":
+		case "li":
+			return new LoadIssue();
 
 			// 終了
 		case "quit":

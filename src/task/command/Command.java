@@ -6,6 +6,7 @@ import java.util.Calendar;
 import java.util.List;
 
 import task.Task;
+import task.TaskFile;
 import task.io.TaskFiles;
 import task.util.CalendarUtil;
 import task.util.StringUtil;
@@ -14,10 +15,15 @@ public abstract class Command {
 
 	public abstract void run() throws Exception;
 
-	protected void showTodoList(List<String> todoList) {
+	protected void showTodoList(List<String> taskList) {
+
 		int index = 1;
-		for (String todo : todoList) {
-			System.out.println(index++ + ":" + todo);
+		TaskFile taskFile = null;
+
+		for (String taskText : taskList) {
+			taskFile = new TaskFile(taskText);
+			// 表示はタスク名、期間
+			System.out.println(index++ + ":" + taskFile.getTaskText());
 		}
 	}
 
@@ -40,11 +46,13 @@ public abstract class Command {
 
 		Calendar taskStartTime = Task.getTaskStartTime();
 
-		long diffTime = (arbitraryTime.getTimeInMillis() - taskStartTime.getTimeInMillis()) / (1000 * 60);
+		long diffTime = (arbitraryTime.getTimeInMillis() - taskStartTime
+				.getTimeInMillis()) / (1000 * 60);
 
 		List<String> logList = TaskFiles.getLogLineTextList();
-		logList.add(timeFormat.format(taskStartTime.getTime()) + "," + timeFormat.format(arbitraryTime.getTime()) + ","
-				+ diffTime + "," + Task.getRunningTaskName());
+		logList.add(timeFormat.format(taskStartTime.getTime()) + ","
+				+ timeFormat.format(arbitraryTime.getTime()) + "," + diffTime
+				+ "," + Task.getRunningTaskName());
 
 		TaskFiles.writeLogFile(logList);
 		return true;

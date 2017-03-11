@@ -23,6 +23,7 @@ public class Delete extends Command {
 			System.out.println("タスクを削除しました。(" + task + ")");
 			TaskFiles.writeTaskFile(todoList);
 		} else {
+			// TODO メソッド名が悪い
 			wrongTaskIndex();
 		}
 		showTodoList(todoList);

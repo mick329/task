@@ -2,6 +2,7 @@ package task.command;
 
 import java.io.IOException;
 import java.util.Calendar;
+import java.util.Properties;
 
 import task.io.TaskFiles;
 import task.util.StringUtil;
@@ -55,6 +56,7 @@ public class Open extends Command {
 	private void openFile(String fullFileName) throws IOException {
 		Runtime runtime = Runtime.getRuntime();
 		System.out.println(fullFileName + "を開きます。");
-		runtime.exec("notepad " + TaskFiles.getDirectoryPath() + fullFileName);
+		Properties prop = TaskProperties.getInstance();
+		runtime.exec("\"" + prop.getProperty("EDITOR_PATH") + "\" " + TaskFiles.getDirectoryPath() + fullFileName);
 	}
 }

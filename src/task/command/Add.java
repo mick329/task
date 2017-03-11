@@ -16,14 +16,19 @@ public class Add extends Command {
 
 	@Override
 	public void run() throws IOException {
+
+		// 現在のタスクリストを取得
 		List<String> todoList = TaskFiles.getTaskList();
 
+		// 入力された値を,で区切る
 		String[] taskArray = taskText.split(",");
 
 		for (String task : taskArray) {
 			if (StringUtil.isNotEmpty(task)) {
-				todoList.add(task);
-				System.out.println("タスクを追加しました。(" + todoList.size() + ":" + task + ")");
+				// issueIdは0で現在のリストに追記
+				todoList.add("0," + task + ",,");
+				System.out.println("タスクを追加しました。(" + todoList.size() + ":"
+						+ task + ")");
 			}
 		}
 
