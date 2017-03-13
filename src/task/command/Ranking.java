@@ -31,7 +31,7 @@ public class Ranking extends Command {
 
 		// 内容を表示
 		for (LogFile logFile : aggregateLogFileList) {
-			System.out.println(StringUtil.createShowLogText(logFile));
+			System.out.println(StringUtil.createShowShortLogText(logFile));
 		}
 	}
 

@@ -79,11 +79,7 @@ public class CommandFactory {
 			// タスク完了
 		case "end":
 		case "e":
-			if (command.length == 1) {
-				return new End();
-			} else {
-				return new End(command[1]);
-			}
+			return new End();
 
 			// 問い合わせ対応
 		case "inquiry":

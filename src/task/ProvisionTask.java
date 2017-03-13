@@ -16,7 +16,7 @@ public enum ProvisionTask {
 
 	private static ProvisionTask getProvisionTask(String taskName) {
 		for (ProvisionTask provisionTask : ProvisionTask.values()) {
-			if (provisionTask.getTaskName().equals(taskName)) {
+			if (taskName.startsWith(provisionTask.getTaskName())) {
 				return provisionTask;
 			}
 		}

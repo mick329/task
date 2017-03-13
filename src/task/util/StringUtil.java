@@ -91,6 +91,11 @@ public final class StringUtil {
 		showLogText.append(" ");
 		showLogText.append(getDateText(logFile.getEndTime()));
 		showLogText.append(" ");
+		return showLogText.toString() + createShowShortLogText(logFile);
+	}
+
+	public static String createShowShortLogText(LogFile logFile) {
+		StringBuilder showLogText = new StringBuilder();
 		showLogText.append(logFile.getTaskName());
 		showLogText.append(": ");
 		showLogText.append(convertHourAndMinute(logFile
